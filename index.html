@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="کافه قرارداد - سامانه هوشمند مدیریت قولنامه‌های خودرو برای نمایشگاه‌داران"
+    />
+    <meta
+      name="keywords"
+      content="کافه قرارداد, مدیریت قولنامه, نمایشگاه خودرو, سامانه هوشمند"
+    />
+    <meta name="author" content="کافه قرارداد" />
+    <title>کافه قرارداد - سامانه مدیریت قولنامه خودرو نمایشگاه‌ها</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+ 
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .hero-text {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+      .nav-glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .card-hover:hover {
+        transform: translateY(-8px) scale(1.04);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+        background: linear-gradient(to bottom, #2d3748, #1a202c);
+      }
+      .social-icon:hover {
+        transform: scale(1.2);
+        transition: transform 0.3s ease;
+      }
+      body {
+        font-family: Vazirmatn, sans-serif;
+        overflow-x: hidden;
+        width: 100%;
+        min-width: 0;
+      }
+      /* بهینه‌سازی برای موبایل */
+      @media (max-width: 767px) {
+        .nav-glass .md\\:flex {
+          display: none;
+        }
+        .grid {
+          grid-template-columns: 1fr !important;
+        }
+        .max-w-5xl,
+        .max-w-6xl,
+        .max-w-4xl,
+        .max-w-3xl {
+          max-width: 100% !important;
+          padding: 0 0.5rem;
+        }
+        .hero-bg {
+          background: linear-gradient(
+            to bottom right,
+            rgba(30, 30, 30, 0.95),
+            rgba(44, 44, 44, 0.8),
+            rgba(255, 165, 0, 0.1) /* Subtle orange tint for branding */
+          );
+          background-size: cover; /* Ensures full coverage */
+          position: relative; /* For z-index layering if needed */
+        }
+
+        .hero-text {
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        @media (max-width: 767px) {
+          .hero-bg {
+            background: linear-gradient(
+              to bottom,
+              rgba(30, 30, 30, 0.95),
+              rgba(44, 44, 44, 0.8)
+            ); /* Simpler for mobile to reduce rendering */
+          }
+          h1 {
+            font-size: 2rem !important;
+          }
+          p {
+            font-size: 1rem !important;
+          }
+        }
+        h1 {
+          font-size: 2rem !important;
+        }
+        h2 {
+          font-size: 1.5rem !important;
+        }
+        p {
+          font-size: 1rem !important;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body
+    class="bg-gradient-to-br from-gray-900 via-gray-800 to-orange-900 text-gray-100 min-h-screen"
+  >
+    <!-- Navigation Bar -->
+    <nav class="nav-glass py-4 px-6 sticky top-0 z-50 shadow-lg">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <div class="flex items-center gap-2">
+          <span class="text-xl font-bold text-orange-400">کافه قرارداد</span>
+        </div>
+        <div class="md:flex gap-6 hidden">
+          <a href="#home" class="text-gray-300 hover:text-orange-400 transition"
+            >خانه</a
+          >
+          <a
+            href="#features"
+            class="text-gray-300 hover:text-orange-400 transition"
+            >امکانات</a
+          >
+          <a
+            href="#steps"
+            class="text-gray-300 hover:text-orange-400 transition"
+            >مراحل</a
+          >
+          <a
+            href="#plans"
+            class="text-gray-300 hover:text-orange-400 transition"
+            >پلن‌ها</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-300 hover:text-orange-400 transition"
+            >تماس</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="relative hero-bg text-orange-400 py-12 px-4 text-center flex items-center justify-center min-h-[400px]"
+    >
+      <div
+        class="max-w-3xl mx-auto flex flex-col items-center gap-6 z-10"
+        data-aos="fade"
+      >
+        <h1
+          class="text-3xl md:text-4xl font-extrabold text-orange-200 hero-text"
+        >
+          کافه قرارداد
+        </h1>
+        <p class="text-base md:text-xl text-orange-100 mb-4 hero-text">
+          سامانه هوشمند مدیریت قولنامه‌های خودرو
+        </p>
+        <a
+          href="#contact"
+          class="bg-orange-500 hover:bg-orange-600 text-white rounded-lg px-6 py-2 font-bold transition"
+          >تماس با ما</a
+        >
+      </div>
+    </section>
+    <!-- Business Intro -->
+    <section class="max-w-4xl mx-auto text-center py-12" data-aos="fade-up">
+      <div class="flex flex-col items-center gap-4">
+        <span class="text-orange-400 text-2xl font-bold"
+          ><i class="fa-solid fa-briefcase mr-2"></i> راهکار حرفه‌ای برای
+          نمایشگاه خودرو</span
+        >
+        <p class="text-gray-300 text-lg">
+          امنیت، سرعت و سادگی در ثبت و چاپ قولنامه‌های نمایشگاه خودرو با کافه
+          قرارداد
+        </p>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 px-6 bg-gray-800">
+      <div class="max-w-5xl mx-auto grid gap-8 md:grid-cols-2">
+        <div
+          class="bg-gray-900 rounded-2xl p-6 shadow-lg card-hover"
+          data-aos="fade-left"
+          data-aos-delay="100"
+        >
+          <h4 class="text-orange-400 font-bold text-lg mb-2">
+            <i class="fa-solid fa-file-alt mr-2"></i> مدیریت قرارداد
+          </h4>
+          <ul class="text-gray-200 text-base list-none pr-0">
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> ثبت قولنامه
+              با کمترین تایپ
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-user text-green-400 mr-2"></i> ثبت اطلاعات
+              فروشنده و خریدار
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-users text-green-400 mr-2"></i> درج شاهدین
+              خریدار و فروشنده
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-hashtag text-green-400 mr-2"></i> اختصاص
+              شماره منحصر به فرد به قرارداد
+            </li>
+          </ul>
+        </div>
+        <div
+          class="bg-gray-900 rounded-2xl p-6 shadow-lg card-hover"
+          data-aos="fade-left"
+          data-aos-delay="100"
+        >
+          <h4 class="text-orange-400 font-bold text-lg mb-2">
+            <i class="fa-solid fa-money-check-alt mr-2"></i> پرداخت و کمیسیون
+          </h4>
+          <ul class="text-gray-200 text-base list-none pr-0">
+            <li class="mb-2">
+              <i class="fa-solid fa-percent text-green-400 mr-2"></i> محاسبه
+              خودکار درصد کمیسیون
+            </li>
+            <li class="mb-2">
+              <i
+                class="fa-solid fa-file-invoice-dollar text-green-400 mr-2"
+              ></i>
+              سفارشی سازی شروط یا مفاد قرارداد
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-money-bill-wave text-green-400 mr-2"></i>
+              امکان نحوه خرید نقد و چک
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="bg-gray-900 rounded-2xl p-6 shadow-lg card-hover"
+          data-aos="fade-left"
+          data-aos-delay="200"
+        >
+          <h4 class="text-orange-400 font-bold text-lg mb-2">
+            <i class="fa-solid fa-print mr-2"></i> چاپ و شخصی‌سازی
+          </h4>
+          <ul class="text-gray-200 text-base list-none pr-0">
+            <li class="mb-2">
+              <i class="fa-solid fa-print text-green-400 mr-2"></i> امکان چاپ
+              قولنامه‌ها
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-ruler-combined text-green-400 mr-2"></i>
+              تغییر اندازه کاغذ قولنامه‌ها
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-image text-green-400 mr-2"></i> درج لوگوی
+              نمایشگاه در قولنامه
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="bg-gray-900 rounded-2xl p-6 shadow-lg card-hover"
+          data-aos="fade-left"
+          data-aos-delay="200"
+        >
+          <h4 class="text-orange-400 font-bold text-lg mb-2">
+            <i class="fa-solid fa-tools mr-2"></i> ابزارهای جانبی
+          </h4>
+          <ul class="text-gray-200 text-base list-none pr-0">
+            <li class="mb-2">
+              <i class="fa-solid fa-fingerprint text-green-400 mr-2"></i> دریافت
+              اثر انگشت دیجیتال
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-search text-green-400 mr-2"></i> جستجوی
+              پیشرفته در قولنامه‌ها
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-book text-green-400 mr-2"></i> دفترچه تلفن
+              نمایشگاه
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section id="steps" class="py-16 px-6">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-2xl md:text-3xl font-bold text-orange-400 mb-8">
+          مراحل ثبت قرارداد
+        </h2>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div
+            class="bg-gray-800 rounded-2xl p-6 shadow-lg card-hover transition transform"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <i class="fa-solid fa-user text-4xl text-orange-400 mb-4"></i>
+            <h3 class="text-lg font-semibold text-orange-300 mb-2">
+              مرحله 1 - ثبت اطلاعات خریدار و فروشنده
+            </h3>
+          </div>
+          <div
+            class="bg-gray-800 rounded-2xl p-6 shadow-lg card-hover transition transform"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <i class="fa-solid fa-users text-4xl text-orange-400 mb-4"></i>
+            <h3 class="text-lg font-semibold text-orange-300 mb-2">
+              مرحله 2 - ثبت اطلاعات شاهدین
+            </h3>
+          </div>
+          <div
+            class="bg-gray-800 rounded-2xl p-6 shadow-lg card-hover transition transform"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <i class="fa-solid fa-car text-4xl text-orange-400 mb-4"></i>
+            <h3 class="text-lg font-semibold text-orange-300 mb-2">
+              مرحله 3 - ثبت اطلاعات مالک و خودرو
+            </h3>
+          </div>
+          <div
+            class="bg-gray-800 rounded-2xl p-6 shadow-lg card-hover transition transform"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <i
+              class="fa-solid fa-money-bill-wave text-4xl text-orange-400 mb-4"
+            ></i>
+            <h3 class="text-lg font-semibold text-orange-300 mb-2">
+              مرحله 4 - ثبت اطلاعات پرداخت
+            </h3>
+          </div>
+          <div
+            class="bg-gray-800 rounded-2xl p-6 shadow-lg card-hover transition transform"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <i
+              class="fa-solid fa-file-signature text-4xl text-orange-400 mb-4"
+            ></i>
+            <h3 class="text-lg font-semibold text-orange-300 mb-2">
+              مرحله 5 - تنظیم مفاد قرارداد
+            </h3>
+          </div>
+          <div
+            class="bg-gray-800 rounded-2xl p-6 shadow-lg card-hover transition transform"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <i class="fa-solid fa-print text-4xl text-orange-400 mb-4"></i>
+            <h3 class="text-lg font-semibold text-orange-300 mb-2">
+              مرحله 6 - چاپ قولنامه
+            </h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section id="plans" class="py-16 px-6 bg-gray-800">
+      <div class="max-w-6xl mx-auto grid gap-8 md:grid-cols-4">
+        <!-- One-Month Plan -->
+        <div
+          class="bg-gray-900 rounded-2xl shadow-xl p-6 flex flex-col items-center card-hover transition transform"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <i
+            class="fa-solid fa-file-circle-check text-5xl text-orange-400 mb-4"
+          ></i>
+          <h3 class="text-xl font-semibold text-orange-300 mb-2">
+            اشتراک یک ماهه
+          </h3>
+          <p class="text-2xl font-bold text-orange-400 mb-4">رایگان</p>
+          <ul class="text-gray-400 mb-6 text-right list-none pr-0">
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> ثبت و مدیریت
+              قراردادها
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> محاسبه
+              خودکار کمیسیون
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> چاپ قولنامه
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> جستجوی پایه
+            </li>
+          </ul>
+          <a
+            href="#contact"
+            class="bg-orange-500 hover:bg-orange-600 text-white rounded-lg px-6 py-2 font-bold transition transform hover:scale-105"
+            >با ما تماس بگیرید</a
+          >
+        </div>
+
+        <!-- Two-Month Plan -->
+        <div
+          class="bg-gray-900 rounded-2xl shadow-xl p-6 flex flex-col items-center card-hover transition transform"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <i
+            class="fa-solid fa-calendar-plus text-5xl text-orange-400 mb-4"
+          ></i>
+          <h3 class="text-xl font-semibold text-orange-300 mb-2">
+            اشتراک دو ماهه
+          </h3>
+          <p class="text-2xl font-bold text-orange-400 mb-4">۳۱۰,۰۰۰ تومان</p>
+          <ul class="text-gray-400 mb-6 text-right list-none pr-0">
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> همه
+              ویژگی‌های پلن یک ماهه
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> پشتیبانی
+              ایمیلی
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> جستجوی
+              پیشرفته
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> سفارشی‌سازی
+              محدود لوگو
+            </li>
+          </ul>
+          <a
+            href="#contact"
+            class="bg-orange-500 hover:bg-orange-600 text-white rounded-lg px-6 py-2 font-bold transition transform hover:scale-105"
+            >با ما تماس بگیرید</a
+          >
+        </div>
+
+        <!-- Three-Month Plan (Most Popular) -->
+        <div
+          class="bg-gray-900 rounded-2xl shadow-xl p-6 flex flex-col items-center card-hover transition transform relative"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <span
+            class="absolute top-0 right-0 bg-orange-500 text-white text-xs px-3 py-1 rounded-bl"
+            >محبوب‌ترین</span
+          >
+          <i class="fa-solid fa-trophy text-5xl text-orange-400 mb-4"></i>
+          <h3 class="text-xl font-semibold text-orange-300 mb-2">
+            اشتراک سه ماهه
+          </h3>
+          <p class="text-2xl font-bold text-orange-400 mb-4">۴۵۰,۰۰۰ تومان</p>
+          <ul class="text-gray-400 mb-6 text-right list-none pr-0">
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> همه
+              ویژگی‌های پلن دو ماهه
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> پشتیبانی
+              تلفنی ۲۴/۷
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> دریافت اثر
+              انگشت دیجیتال
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> گزارش‌گیری
+              ماهانه
+            </li>
+          </ul>
+          <a
+            href="#contact"
+            class="bg-orange-500 hover:bg-orange-600 text-white rounded-lg px-6 py-2 font-bold transition transform hover:scale-105"
+            >با ما تماس بگیرید</a
+          >
+        </div>
+
+        <!-- Six-Month Plan -->
+        <div
+          class="bg-gray-900 rounded-2xl shadow-xl p-6 flex flex-col items-center card-hover transition transform"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <i class="fa-solid fa-star text-5xl text-orange-400 mb-4"></i>
+          <h3 class="text-xl font-semibold text-orange-300 mb-2">
+            اشتراک شش ماهه
+          </h3>
+          <p class="text-2xl font-bold text-orange-400 mb-4">۶۹۰,۰۰۰ تومان</p>
+          <ul class="text-gray-400 mb-6 text-right list-none pr-0">
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> همه
+              ویژگی‌های پلن سه ماهه
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> ادغام با
+              نرم‌افزارهای حسابداری
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> پشتیبانی
+              اختصاصی
+            </li>
+            <li class="mb-2">
+              <i class="fa-solid fa-check text-green-400 mr-2"></i> آموزش
+              ویدئویی
+            </li>
+          </ul>
+          <a
+            href="#contact"
+            class="bg-orange-500 hover:bg-orange-600 text-white rounded-lg px-6 py-2 font-bold transition transform hover:scale-105"
+            >با ما تماس بگیرید</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="py-12 bg-gray-900 text-gray-300 text-center">
+      <div class="max-w-4xl mx-auto">
+        <div class="flex justify-center gap-6 mb-4">
+          <a href="#" class="text-orange-400 hover:text-orange-500 social-icon"
+            ><i class="fa-brands fa-telegram text-2xl"></i
+          ></a>
+          <a href="#" class="text-orange-400 hover:text-orange-500 social-icon"
+            ><i class="fa-brands fa-instagram text-2xl"></i
+          ></a>
+          <a href="#" class="text-orange-400 hover:text-orange-500 social-icon"
+            ><i class="fa-brands fa-whatsapp text-2xl"></i
+          ></a>
+        </div>
+        <p class="mb-4">
+          تماس با ما:
+          <a href="tel:+989102705910" class="underline text-orange-400"
+            >09102705910</a
+          >
+          |
+          <a href="tel:+989368045285" class="underline text-orange-400"
+            >09368045285</a
+          >
+        </p>
+        <p class="text-sm">
+          کافه قرارداد - سامانه‌ای برای مدیریت حرفه‌ای قولنامه‌های نمایشگاه
+          خودرو
+        </p>
+        <p class="text-sm mt-2">© ۱۴۰۴ کافه قرارداد. تمامی حقوق محفوظ است.</p>
+      </div>
+    </footer>
+
+    <script defer src="assets/js/aos.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        AOS.init({
+          duration: 800,
+          once: true,
+          //disable: window.innerWidth < 768, // Disable on mobile for performance
+        });
+      });
+    </script>
+
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "کافه قرارداد",
+        "description": "سامانه هوشمند مدیریت قولنامه‌های خودرو برای نمایشگاه‌داران ایرانی با قابلیت ثبت قرارداد، محاسبه کمیسیون و چاپ حرفه‌ای",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "Contract Management Software",
+        "url": "https://cafegharardad.ir/",
+        "operatingSystem": "Web",
+        "inLanguage": "fa-IR",
+        "image": "https://cafegharardad.ir/images/logo.png",
+        "featureList": [
+          "ثبت سریع قولنامه",
+          "محاسبه خودکار کمیسیون",
+          "چاپ حرفه‌ای قولنامه",
+          "جستجوی پیشرفته قراردادها"
+        ],
+        "offers": [
+          {
+            "@type": "Offer",
+            "price": "220000",
+            "priceCurrency": "IRR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://cafegharardad.ir/#plans"
+          },
+          {
+            "@type": "Offer",
+            "price": "310000",
+            "priceCurrency": "IRR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://cafegharardad.ir/#plans"
+          },
+          {
+            "@type": "Offer",
+            "price": "450000",
+            "priceCurrency": "IRR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://cafegharardad.ir/#plans"
+          },
+          {
+            "@type": "Offer",
+            "price": "690000",
+            "priceCurrency": "IRR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://cafegharardad.ir/#plans"
+          }
+        ],
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+989102705910",
+            "contactType": "customer service",
+            "areaServed": "IR",
+            "availableLanguage": "Persian"
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+989368045285",
+            "contactType": "customer service",
+            "areaServed": "IR",
+            "availableLanguage": "Persian"
+          }
+        ]
+      }
+    </script>
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "کافه قرارداد",
+        "description": "سامانه مدیریت قولنامه خودرو برای نمایشگاه‌داران ایرانی",
+        "url": "https://cafegharardad.ir/",
+        "telephone": "+989102705910",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+989102705910",
+            "contactType": "customer service",
+            "areaServed": "IR",
+            "availableLanguage": "Persian"
+          },
+          {
+            "@type": "ContactPoint",
+            "telephone": "+989368045285",
+            "contactType": "customer service",
+            "areaServed": "IR",
+            "availableLanguage": "Persian"
+          }
+        ],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "35.6892",
+          "longitude": "51.3890"
+        },
+        "openingHours": "Mo-Fr 09:00-17:00"
+      }
+    </script>
+
+    <!-- Service Worker (Deferred) -->
+    <script defer>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then(() => console.log("Service Worker ثبت شد"))
+            .catch(() => console.log("Service Worker ثبت نشد"));
+        });
+      }
+    </script>
+  </body>
+</html>
